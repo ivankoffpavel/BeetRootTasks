@@ -1,1 +1,0 @@
-#Prints the average value.For 3 data
