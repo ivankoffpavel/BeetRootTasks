@@ -7,28 +7,31 @@
 def arg_rules(type_: type, max_length: int, contains: list):
    def int_func(f):
        def wrapper(name):
+            flag_pos = 0
+            flag_neg = 0
             list_new = []
             str = f(name).split()
             if len(name) < 15:
-                print(str)
                 for i in str:
                     for y in contains:
                         if y in i:
-                            list_new.append(i)
+                            flag_pos += 1
                         else:
-            print(list_new)
+                            flag_neg +=1
+            if flag_pos == len(contains):
+                for i in str:
+                    print(i,end=' ')
+                print()
+            else:
+                print('Is False')
        return  wrapper
    return int_func
-
-
-
-
-
 
 @arg_rules(type_=str, max_length=15, contains=['05', '@'])
 def create_slogan(name: str) -> str:
     return f"{name} drinks pepsi in his brand new BMW!"
 create_slogan('05@ukr.net')
+create_slogan('05*ukr.net')
 
 # assert create_slogan('johndoe05@gmail.com') is False
 #
