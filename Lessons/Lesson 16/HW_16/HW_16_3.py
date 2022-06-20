@@ -32,4 +32,7 @@ class Product:
         self.price = price
         self.name = name
         self.type = type
+class ProductStore:
+p = Product('Sport','Ball',85)
+print(p.name)
         
