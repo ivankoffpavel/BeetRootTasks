@@ -1,0 +1,2 @@
+# a. Create a stack with specified length, fill in stack with values (number of elements == specified length). b. Remove all items from a stack. c.
+# Fill in stack again but only a half of it. d. Remove one element.

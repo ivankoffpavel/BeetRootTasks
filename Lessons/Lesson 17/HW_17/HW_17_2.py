@@ -19,9 +19,26 @@ class Book:
         self.name = name
         Book.total_num_of_books += 1
 
+class Library(Book):
+    def __init__(self,lib_name,name,year,author):
+        super().__init__(name,year,author)
+        self.authors = []
+        self.books = []
+        self.lib_name = lib_name
+    def new_book(self):
+        b_inst = Book(self.name,self.year,self.author)
+        self.books.append(b_inst)
+    def group_by_author(self,author):
+        for item in self.books:
+            if item.author.name == self.author.name:
+                print(item.author.books)
+            else:
+                print('This author name doesn\'t exist!')
+        
 
-    def book_info(self):
-        print(self.name,self.year,self.author)
+
+    def __str__(self):
+        return f'Bookname: {self.name}, year: {self.year},author: {self.author}'
 
 
 
@@ -32,22 +49,34 @@ class Author:
         self.birthday = birthday
         self.country = country
         self.name = name
-
-
-class Library(Book):
-    def __init__(self,name,books,authors):
-        self.authors = authors
-        self.books = books
-        self.name = name
-    def list_of_books(self):
-        print(self.books)
+    def __str__(self):
+        return f'{self.name},{self.country},{self.birthday}'
 
 
 
-CJ = Book('"Living in NY"',1925,'Carl Johnson')
-CJ.book_info()
-CJ.total_num_of_books
-print(Book.total_num_of_books)
+
+
+
+
+auth1 = Author("Teodor Driser",'USA',1863,["Titan","Finansist"])
+auth2 = Author("Fransi")
+
+lib1 = Library('Main','Titan',1863,auth1)
+lib1.new_book()
+
+print(lib1)
+lib1.group_by_author('Teodor Driser')
+
+
+
+
+
+
+
+
+
+
+
 
 
 
