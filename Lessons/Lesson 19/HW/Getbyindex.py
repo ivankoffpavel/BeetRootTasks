@@ -7,12 +7,9 @@ print(it1)
 def get_by_index(iterable,index): #function wich receives an iterable and index to retrieve a value
     num = 0
     for i in iterable:
-        if index == num:
-            print(i)
+        if num == index:
+            return i
         num+=1
-get_by_index(lst,0)
-get_by_index(lst,1)
-get_by_index(lst,2)
-get_by_index(lst,3)
-get_by_index(lst,4)
-get_by_index(lst,5)
+print(get_by_index(it1,4)) # this code work only once correct because the iterator resumes afer 1 result from current position
+
+
